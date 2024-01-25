@@ -7,10 +7,10 @@ const DetailScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View style ={{alignItems:'center', marginVertical:50}}>
       <Text>Details Screen</Text>
       <Button
-        title="Go to Initial Screen"
+        title="Back to Initial Screen"
         onPress={() => navigation.goBack()}
       />
     </View>

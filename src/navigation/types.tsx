@@ -1,6 +1,5 @@
 // types.ts
 export type DemoStackParamList = {
-  News: undefined;
   Counter: undefined;
   Detail: undefined;
   Initial: undefined;
@@ -15,11 +14,13 @@ export type AuthStackParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
+  News:undefined;
   // Add more screens if needed
 };
 
 export type MainTabParamList = {
-  HomeStack: undefined;
+  HomeTab: undefined;
+  DetailTab:undefined;
   // Add more tabs/screens if needed
 };
 

@@ -1,6 +1,6 @@
 // InitailScreen.tsx
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack'; // Corrected import
 import {DemoStackParamList} from '../navigation/types';
@@ -14,8 +14,8 @@ const InitailScreen = () => {
   const navigation = useNavigation<InitailScreenNavigationProp>();
 
   return (
-    <View>
-      <Text>Details Screen</Text>
+    <View style = {styles.container}>
+      <Text style = {styles.myText}>Initial Screen</Text>
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Detail')}
@@ -23,5 +23,18 @@ const InitailScreen = () => {
     </View>
   );
 };
-
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 50,
+    flex: 1,
+    alignItems:'center'
+  },
+  
+  myText: {
+    fontSize: 18,
+    color: 'blue',
+    fontWeight: 'bold',
+    marginVertical: 50,
+  },
+});
 export default InitailScreen;

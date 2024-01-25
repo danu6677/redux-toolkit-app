@@ -1,14 +1,15 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import {RootStackParamList} from './types';
-import {DemoStackScreen} from './stackControllers/DemoStack';
-import {AuthStackScreen} from './stackControllers/AuthStack';
-
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { RootStackParamList } from "./types";
+import { AuthStackScreen } from "./stackControllers/Stacks/AuthStack";
+import { MainApp } from "./stackControllers/Tabs/MainTab";
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const chooseStack = () => {
-  return true ? (
-    <RootStack.Screen name="Home" component={DemoStackScreen} />
+  const isLoggedIn = true;//Default value for demo purpose
+
+  return isLoggedIn ? (
+    <RootStack.Screen name="Home" component={MainApp} />
   ) : (
     <RootStack.Screen name="Auth" component={AuthStackScreen} />
   );
@@ -16,7 +17,7 @@ const chooseStack = () => {
 const NavigationContainerComponent = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator screenOptions={{headerShown: false}}>
+      <RootStack.Navigator screenOptions={{ headerShown: false }}>
         {chooseStack()}
       </RootStack.Navigator>
     </NavigationContainer>

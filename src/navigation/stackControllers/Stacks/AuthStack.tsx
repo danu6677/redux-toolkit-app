@@ -1,6 +1,6 @@
-import LoginScreen from '../../screens/LoginScreen';
-import SignupScreen from '../../screens/SignupScreen';
-import {AuthStack} from '../navigationStacks';
+import LoginScreen from '../../../screens/LoginScreen';
+import SignupScreen from '../../../screens/SignupScreen';
+import {AuthStack} from '../../navigationStacks';
 import React from 'react';
 
 export const AuthStackScreen = () => (
