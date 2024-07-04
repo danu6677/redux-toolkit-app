@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -7,10 +7,10 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-} from 'react-native'; // Correct import statement
-import {useDispatch, useSelector} from 'react-redux';
-import {AppDispatch, RootState} from '../store/store';
-import {decrement, increment, incrementBy} from '../slice/counterslice';
+} from "react-native"; // Correct import statement
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store/store";
+import { decrement, increment, incrementBy } from "../slice/counterslice";
 
 const CounterScreen = () => {
   const dispatch = useDispatch<AppDispatch>(); //AppDispatch is only needed if working with async
@@ -19,7 +19,8 @@ const CounterScreen = () => {
   return (
     // Added return statement
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.myText}>Count: {count}</Text>
@@ -38,23 +39,23 @@ const CounterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   myText: {
     fontSize: 18,
-    color: 'blue',
-    fontWeight: 'bold',
+    color: "blue",
+    fontWeight: "bold",
     marginBottom: 50,
     marginTop: 100,
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: "gray",
     borderWidth: 1,
     margin: 10,
     padding: 5,
-    width: '80%',
+    width: "80%",
   },
 });
 

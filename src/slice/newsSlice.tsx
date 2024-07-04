@@ -10,7 +10,7 @@ interface NewsItem {
     square_140: string;
   };
 }
-
+//Blue print of the screen state
 interface NewsState {
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;

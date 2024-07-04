@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -6,10 +6,10 @@ import {
   FlatList,
   ActivityIndicator,
   StyleSheet,
-} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../store/store';
-import {fetchNewsAsync} from '../slice/newsSlice';
+} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store/store";
+import { fetchNewsAsync } from "../slice/newsSlice";
 
 interface NewsItem {
   id: number;
@@ -21,14 +21,15 @@ interface NewsItem {
 
 const NewsComponent = () => {
   const dispatch = useDispatch();
-  const {status, news, error} = useSelector((state: RootState) => state.news);
+  //from the initial state object in the slice
+  const { status, news, error } = useSelector((state: RootState) => state.news);
 
   useEffect(() => {
     // Dispatch the fetchNewsAsync action when the component mounts
     dispatch(fetchNewsAsync() as any); // Use 'as any' to resolve TypeScript error
   }, [dispatch]); // Dependency array ensures the effect runs only once
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="blue" />
@@ -36,7 +37,7 @@ const NewsComponent = () => {
     );
   }
 
-  if (status === 'failed') {
+  if (status === "failed") {
     return <Text>{error}</Text>;
   }
 
@@ -47,14 +48,14 @@ const NewsComponent = () => {
         keyExtractor={(item: NewsItem) =>
           item.id && item.images && item.images.square_140
             ? item.id.toString()
-            : ''
+            : ""
         }
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View style={styles.container}>
             <Text style={styles.myText}>{item.title}</Text>
             {item.images && item.images.square_140 && (
               <Image
-                source={{uri: item.images.square_140}}
+                source={{ uri: item.images.square_140 }}
                 style={styles.image}
               />
             )}
@@ -75,14 +76,14 @@ const styles = StyleSheet.create({
   },
   myText: {
     fontSize: 18,
-    color: 'blue',
-    fontWeight: 'bold',
+    color: "blue",
+    fontWeight: "bold",
     marginVertical: 50,
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
